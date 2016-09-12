@@ -2,97 +2,107 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_gravity="center_horizontal"
     android:orientation="vertical">
     <TextView
         android:id="@+id/tv_qipan_step_num"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
         android:visibility="gone"
+        android:gravity="center_horizontal"
         android:text="第xx步："/>
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <Button android:id="@+id/btn_qp_grid1"
-            android:layout_width="50dp"
-            android:layout_height="wrap_content"/>
-        <Button android:id="@+id/btn_qp_grid2"
-            android:layout_width="50dp"
-            android:layout_height="wrap_content"/>
-        <Button android:id="@+id/btn_qp_grid3"
-            android:layout_width="50dp"
-            android:layout_height="wrap_content"/>
-        <Button android:id="@+id/btn_qp_grid4"
-            android:layout_width="50dp"
-            android:layout_height="wrap_content"/>
+        android:padding="4dp"
+        android:layout_gravity="center_horizontal"
+        android:orientation="vertical"
+        android:background="@drawable/shape_qipan_border">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <Button android:id="@+id/btn_qp_grid1"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"/>
+            <Button android:id="@+id/btn_qp_grid2"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"/>
+            <Button android:id="@+id/btn_qp_grid3"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"/>
+            <Button android:id="@+id/btn_qp_grid4"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <Button android:id="@+id/btn_qp_grid5"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"/>
+            <Button android:id="@+id/btn_qp_grid6"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"/>
+            <Button android:id="@+id/btn_qp_grid7"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"/>
+            <Button android:id="@+id/btn_qp_grid8"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <Button android:id="@+id/btn_qp_grid9"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"/>
+            <Button android:id="@+id/btn_qp_grid10"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"/>
+            <Button android:id="@+id/btn_qp_grid11"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"/>
+            <Button android:id="@+id/btn_qp_grid12"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <Button android:id="@+id/btn_qp_grid13"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"/>
+            <Button android:id="@+id/btn_qp_grid14"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"/>
+            <Button android:id="@+id/btn_qp_grid15"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"/>
+            <Button android:id="@+id/btn_qp_grid16"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <Button android:id="@+id/btn_qp_grid17"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"/>
+            <Button android:id="@+id/btn_qp_grid18"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"/>
+            <Button android:id="@+id/btn_qp_grid19"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"/>
+            <Button android:id="@+id/btn_qp_grid20"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
     </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <Button android:id="@+id/btn_qp_grid5"
-            android:layout_width="50dp"
-            android:layout_height="wrap_content"/>
-        <Button android:id="@+id/btn_qp_grid6"
-            android:layout_width="50dp"
-            android:layout_height="wrap_content"/>
-        <Button android:id="@+id/btn_qp_grid7"
-            android:layout_width="50dp"
-            android:layout_height="wrap_content"/>
-        <Button android:id="@+id/btn_qp_grid8"
-            android:layout_width="50dp"
-            android:layout_height="wrap_content"/>
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <Button android:id="@+id/btn_qp_grid9"
-            android:layout_width="50dp"
-            android:layout_height="wrap_content"/>
-        <Button android:id="@+id/btn_qp_grid10"
-            android:layout_width="50dp"
-            android:layout_height="wrap_content"/>
-        <Button android:id="@+id/btn_qp_grid11"
-            android:layout_width="50dp"
-            android:layout_height="wrap_content"/>
-        <Button android:id="@+id/btn_qp_grid12"
-            android:layout_width="50dp"
-            android:layout_height="wrap_content"/>
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <Button android:id="@+id/btn_qp_grid13"
-            android:layout_width="50dp"
-            android:layout_height="wrap_content"/>
-        <Button android:id="@+id/btn_qp_grid14"
-            android:layout_width="50dp"
-            android:layout_height="wrap_content"/>
-        <Button android:id="@+id/btn_qp_grid15"
-            android:layout_width="50dp"
-            android:layout_height="wrap_content"/>
-        <Button android:id="@+id/btn_qp_grid16"
-            android:layout_width="50dp"
-            android:layout_height="wrap_content"/>
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <Button android:id="@+id/btn_qp_grid17"
-            android:layout_width="50dp"
-            android:layout_height="wrap_content"/>
-        <Button android:id="@+id/btn_qp_grid18"
-            android:layout_width="50dp"
-            android:layout_height="wrap_content"/>
-        <Button android:id="@+id/btn_qp_grid19"
-            android:layout_width="50dp"
-            android:layout_height="wrap_content"/>
-        <Button android:id="@+id/btn_qp_grid20"
-            android:layout_width="50dp"
-            android:layout_height="wrap_content"/>
-    </LinearLayout>
+
 </LinearLayout>

@@ -4,11 +4,12 @@ import android.content.Context;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 public class ResultActivity extends AppCompatActivity {
@@ -33,7 +34,8 @@ public class ResultActivity extends AppCompatActivity {
         setContentView(R.layout.activity_result);
         mQpList = (RecyclerView) findViewById(R.id.rv_result_qp_list);
         mAdapter = new ResultAdapter(this, MainActivity.mQpResult);
-        mQpList.setLayoutManager(new LinearLayoutManager(this));
+//        mQpList.setLayoutManager(new LinearLayoutManager(this));
+        mQpList.setLayoutManager(new GridLayoutManager(this, 2));
         mQpList.setAdapter(mAdapter);
     }
 
@@ -58,23 +60,28 @@ public class ResultActivity extends AppCompatActivity {
         @Override
         public void onBindViewHolder(QpHolder holder, int position) {
             holder.mStep.setVisibility(View.VISIBLE);
-            holder.mStep.setText("第" + position + "步");
+            holder.mStep.setText("第" + position + "步：");
             Qipan qp = mData[position];
             for (int i = 0; i < holder.mGrids.length; i++) {
                 if (qp.qp[i] == 5) {
                     holder.mGrids[i].setText("曹");
+                    holder.mGrids[i].setBackgroundColor(mRes.getColor(R.color.colorAccent));
                 }
                 if (qp.qp[i] == 4) {
                     holder.mGrids[i].setText("横");
+                    holder.mGrids[i].setBackgroundColor(mRes.getColor(R.color.colorPrimary));
                 }
                 if (qp.qp[i] == 3) {
                     holder.mGrids[i].setText("竖");
+                    holder.mGrids[i].setBackgroundColor(mRes.getColor(R.color.colorShu));
                 }
                 if (qp.qp[i] == 2) {
                     holder.mGrids[i].setText("卒");
+                    holder.mGrids[i].setBackgroundColor(mRes.getColor(R.color.colorZu));
                 }
                 if (qp.qp[i] == 0) {
                     holder.mGrids[i].setText("");
+                    holder.mGrids[i].setBackgroundColor(mRes.getColor(R.color.colorTrans20));
                 }
             }
         }
@@ -96,9 +103,14 @@ public class ResultActivity extends AppCompatActivity {
             this.mPackage = mPackage;
             mGrids = new Button[20];
             mStep = (TextView) itemView.findViewById(R.id.tv_qipan_step_num);
+            int size = mRes.getDimensionPixelSize(R.dimen.result_grid_size);
             for (int i = 0; i < mGrids.length; i++) {
                 mGrids[i] = (Button) itemView.findViewById(mRes.getIdentifier("btn_qp_grid" + (i + 1), "id", mPackage));
                 mGrids[i].setClickable(false);
+                LinearLayout.LayoutParams params = (LinearLayout.LayoutParams) mGrids[i].getLayoutParams();
+                params.height = size;
+                params.width = size;
+                mGrids[i].setLayoutParams(params);
             }
         }
     }

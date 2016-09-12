@@ -66,40 +66,39 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //                1, 2, 4, 4,
 //                0, 0, 4, 4};
         char[] qipan = new char[mQpGrids.length];
+        // 校验数据，分别为曹操、横将、竖将、卒、空格的数量
+        int[] checkData = new int[5];
         for (int i = 0; i < mQpGrids.length; i++) {
             if("曹".equals(mQpGrids[i].getText().toString())) {
+                checkData[0]++;
                 qipan[i] = 5;
                 qipan[i] = (i >= 4 && qipan[i] == qipan[i - 4]) ? (char)1 : (char)5;
             }
             if("横".equals(mQpGrids[i].getText().toString())) {
+                checkData[1]++;
                 qipan[i] = 4;
             }
             if("竖".equals(mQpGrids[i].getText().toString())) {
+                checkData[2]++;
                 qipan[i] = 3;
                 qipan[i] = (i >= 4 && qipan[i] == qipan[i - 4]) ? (char)1 : (char)3;
             }
             if("卒".equals(mQpGrids[i].getText().toString())) {
+                checkData[3]++;
                 qipan[i] = 2;
             }
             if(TextUtils.isEmpty(mQpGrids[i].getText().toString())) {
                 qipan[i] = 0;
+                checkData[4]++;
             }
+        }
+        if (!isValidQipan(checkData)) {
+            Toast.makeText(MainActivity.this, "不支持该棋盘布局", Toast.LENGTH_SHORT).show();
+            return;
         }
         mQpResult = HrdLib.hrdPlay(qipan);
         if (mQpResult != null) {
             Log.d("sy", "get qpResult");
-//            for (Qipan qp : qpResult) {
-//                Log.d("sy", "下一步：");
-//                int[] r = new int[20];
-//                for (int i = 0; i < 20; i++) {
-//                    r[i] = qp.qp[i];
-//                }
-//                Log.d("sy", r[0] + " " + r[1] + " " + r[2] + " " + r[3]);
-//                Log.d("sy", r[4] + " " + r[5] + " " + r[6] + " " + r[7]);
-//                Log.d("sy", r[8] + " " + r[9] + " " + r[10] + " " + r[11]);
-//                Log.d("sy", r[12] + " " + r[13] + " " + r[14] + " " + r[15]);
-//                Log.d("sy", r[16] + " " + r[17] + " " + r[18] + " " + r[19]);
-//            }
             Intent intent = new Intent(MainActivity.this, ResultActivity.class);
 //            Bundle d = new Bundle();
 //            d.putParcelableArray("QpList", qpResult);
@@ -109,6 +108,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Toast.makeText(MainActivity.this, "无解", Toast.LENGTH_SHORT).show();
             Log.e("sy", "qpResult null");
         }
+    }
+
+    private boolean isValidQipan(int[] data) {
+        // 曹操占4格，横将、竖将之和为5，卒4格，空格2
+        if (data[0] == 4
+                && (data[1] % 2 == 0
+                && data[2] % 2 == 0
+                && data[1] + data[2] == 10)
+                && data[3] == 4
+                && data[4] == 2) {
+            return true;
+        }
+
+        return false;
     }
 
     @Override
