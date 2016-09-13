@@ -9,7 +9,11 @@
 extern "C" {
 #endif
 
-#define HRD_NAME(name) Java_com_gwcd_sy_hrd_HrdLib_name
+#define JAVA_CLASS com_gwcd_sy_hrd_HrdLib
+// 简化jni函数接口的宏
+#define NAME3(CLASS3, FUNC3) Java_##CLASS3##_##FUNC3
+#define NAME2(CLASS2, FUNC2) NAME3(CLASS2, FUNC2)
+#define NAME(FUNC) NAME2(JAVA_CLASS, FUNC)
 
 //棋盘表示使用char一维数组,例:char q[20];
 //大王是5(大王只能1个),横将是4,竖将是3,兵是2,空位用0表示
